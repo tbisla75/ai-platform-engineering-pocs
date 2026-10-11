@@ -1,0 +1,1 @@
+{"pods":{"items":[{"metadata":{"name":"web-7f7"},"status":{"containerStatuses":[{"state":{"waiting":{"reason":"CrashLoopBackOff"}}}]}}]},"events":{"items":[{"type":"Warning","reason":"BackOff","message":"Back-off restarting failed container"}]}}
