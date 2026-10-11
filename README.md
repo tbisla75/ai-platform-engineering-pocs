@@ -45,3 +45,42 @@ Reports node readiness, advertised GPU capacity and optional NVIDIA product labe
 3. Add NVIDIA GPU Operator health checks and DCGM Exporter metrics.
 4. Add a local LLM for incident explanations with citations to gathered evidence.
 5. Add approval-gated, audited AWX remediation (disabled by default).
+
+
+## 3. LangGraph Kubernetes AI Incident Agent
+
+A three-stage **read-only** agent workflow (collect → triage → explain), with optional **local Ollama** inference. This is a guided graph, not an autonomous remediation bot.
+
+### Installation
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install -r requirements.txt
+```
+
+On Windows PowerShell, activate with `.venv\\Scripts\\Activate.ps1`.
+
+### Run without an LLM (safe first exercise)
+
+```bash
+python k8s-incident-agent/agent.py --fixture k8s-incident-agent/sample.json --offline
+```
+
+### Run with a local LLM
+
+Install [Ollama](https://ollama.com/), download the model using `ollama pull llama3.2`, and ensure Ollama is running locally. Then run:
+
+```bash
+python k8s-incident-agent/agent.py --fixture k8s-incident-agent/sample.json
+```
+
+### Run tests
+
+```bash
+python -m unittest discover -s tests -v
+```
+
+See [the study guide](k8s-incident-agent/STUDY_GUIDE.md) and [GitHub Actions](.github/workflows/tests.yml) for the implementation and CI configuration.
+
+**Data caution:** Live Kubernetes events may contain confidential details. The LLM is restricted to a loopback Ollama endpoint, but do not process real customer data without authorization and appropriate redaction.
