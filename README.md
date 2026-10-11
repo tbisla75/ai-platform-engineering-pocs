@@ -84,3 +84,8 @@ python -m unittest discover -s tests -v
 See [the study guide](k8s-incident-agent/STUDY_GUIDE.md) and [GitHub Actions](.github/workflows/tests.yml) for the implementation and CI configuration.
 
 **Data caution:** Live Kubernetes events may contain confidential details. The LLM is restricted to a loopback Ollama endpoint, but do not process real customer data without authorization and appropriate redaction.
+
+
+## TypeScript Kubernetes Incident REST API
+
+New learning project: [typescript-k8s-api](typescript-k8s-api/README.md). A Node.js 22 + TypeScript read-only HTTP API with typed Kubernetes incident analysis, unit/integration tests, and [GitHub Actions](.github/workflows/typescript.yml). Start with `src/analyzer.ts`, then `src/server.ts`.
