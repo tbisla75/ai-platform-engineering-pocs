@@ -1,0 +1,2 @@
+# LangGraph workflow engine. The deterministic scripts use Python standard library only.
+langgraph>=0.3,<2
