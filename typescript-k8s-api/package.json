@@ -1,0 +1,1 @@
+{"name":"typescript-k8s-incident-api","version":"1.0.0","private":true,"type":"module","scripts":{"build":"tsc -p tsconfig.json","start":"node dist/src/server.js","dev":"npm run build && npm start","test":"npm run build && node --test dist/test/*.test.js","typecheck":"tsc --noEmit"},"devDependencies":{"@types/node":"^22.0.0","typescript":"^5.9.0"},"engines":{"node":">=22"}}
